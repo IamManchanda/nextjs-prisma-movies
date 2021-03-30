@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { PrismaClient } from "@prisma/client";
+import Link from "next/link";
 import styles from "../../assets/styles/Home.module.css";
 
 const prisma = new PrismaClient();
@@ -13,10 +14,15 @@ function PageMoviesSlug({ movie }) {
       </Head>
 
       <main className={styles.main}>
+        <Link href="/">
+          <a>
+            <p className={styles.goBack}>&larr; Go Back</p>
+          </a>
+        </Link>
+
         <h1 className={styles.title}>
           {movie.title} - {movie.year}
         </h1>
-
         <div className={styles.grid}>
           <p className={styles.description}>{movie.description}</p>
         </div>
